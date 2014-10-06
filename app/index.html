@@ -23,10 +23,10 @@
     <div class="container">
         <div class="row padding-row" data-ng-controller="MainCtrl">
           <div class="col-sm-2">
-            <button type="button" class="btn btn-primary"  data-ng-disabled="!blogName">Search</button>
+            <button type="button" class="btn btn-primary" data-ng-click="getData(blogName)" data-ng-disabled="!blogName">Search</button>
           </div>
           <div class="col-sm-10">
-            <input class="form-control" type="text" data-ng-model="blogName" >
+            <input class="form-control" type="text" data-ng-model="blogName">
           </div>
         </div>
         <div class="row padding-row">
@@ -83,7 +83,11 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
+        <script src="scripts/services/blogdatamodel.js"></script>
         <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/services/apikey.js"></script>
+        <script src="scripts/controllers/postlist.js"></script>
         <!-- endbuild -->
+
 </body>
 </html>
