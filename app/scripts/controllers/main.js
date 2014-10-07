@@ -1,8 +1,14 @@
 'use strict';
 
 angular.module('tumblrcrawlerApp')
-  .controller('MainCtrl', ['$scope', 'blogData', function ($scope, blogData) {
+  .controller('MainCtrl', ['$scope','$rootScope', 'blogData', function ($scope, $rootScope, blogData) {
 
-    $scope.getData = blogData.get;
+    $scope.blogData = blogData;
+
+    $scope.getData = function(blogName){
+      blogData.resetData();
+      blogData.data.blogName = blogName;
+      blogData.get();
+    }
 
   }]);

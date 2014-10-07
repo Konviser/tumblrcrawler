@@ -9,4 +9,8 @@
  * Main module of the application.
  */
 angular
-  .module('tumblrcrawlerApp', [])
+  .module('tumblrcrawlerApp', ['ui.bootstrap'])
+  .run(['$rootScope', function($rootScope){
+    $rootScope.currentPage = 0;
+
+  }]);

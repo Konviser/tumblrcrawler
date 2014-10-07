@@ -1,17 +1,16 @@
 'use strict';
 
 angular.module('tumblrcrawlerApp')
-  .controller('PostList', ['$scope', 'blogData', function ($scope, blogData) {
+  .controller('PostList', ['$scope', '$rootScope', 'blogData', function ($scope, $rootScope, blogData) {
 
-    $scope.postList = [];
-    $scope.editPost = blogData.editEntry;
+    $scope.blogData = blogData;
+    $scope.postList = blogData.data;
+    $scope.currentPage = $rootScope.currentPage;
 
-    $scope.$watch(function(){
-      return blogData.getPostData();
-    }, function(newVal){
-      if (newVal != undefined)
-        console.log(newVal);
-        $scope.postList = newVal;
-    });
+    $scope.pageChanged = function(page){
+
+      console.log($rootScope.blogURL);
+    };
+
 
   }]);
