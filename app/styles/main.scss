@@ -55,6 +55,12 @@ body {
     display: inline-block;
 }
 
+.closelink {
+    display: block;
+    position: relative;
+    top: 10px;
+  }
+
 a {
     cursor: pointer;
 }

@@ -16,6 +16,7 @@ angular.module('tumblrcrawlerApp')
     var retriveImages = function(data){
         if (data){
           for (var i=0; i<data.length; i++){
+            console.log(data[i]);
             data[i].timestamp = new Date(data[i].date).valueOf();
             data[i].imgs=new Array();
             if (data[i].type === 'photo'){
@@ -71,11 +72,16 @@ angular.module('tumblrcrawlerApp')
       this.data.totalItems = 0;
       this.data.blogName = null;
       this.data.currentPage = 0;
-    }
+    };
+
+    var deleteImage = function(index,postindex){
+      this.data.postData[postindex].imgs.splice(index, 1);
+    };
 
     return {
       data:data,
       get:get,
-      resetData:resetData
+      resetData:resetData,
+      deleteImage:deleteImage
     }
 }]);

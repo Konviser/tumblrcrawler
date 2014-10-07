@@ -43,7 +43,7 @@ angular.module('tumblrcrawlerApp')
       }
 
       scope.addImages = function($event){
-        if ($event.keyCode === 13) {
+        if ($event.keyCode === 13 && scope.image) {
           scope.value.imgs.push(scope.image);
           scope.editing = false;
           element.removeClass('active');
