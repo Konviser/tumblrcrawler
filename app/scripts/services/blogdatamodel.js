@@ -16,6 +16,7 @@ angular.module('tumblrcrawlerApp')
     var retriveImages = function(data){
         if (data){
           for (var i=0; i<data.length; i++){
+            data[i].timestamp = new Date(data[i].date).valueOf();
             data[i].imgs=new Array();
             if (data[i].type === 'photo'){
               for (var k=0;k<data[i].photos.length;k++){
@@ -55,7 +56,6 @@ angular.module('tumblrcrawlerApp')
             if(!that.data.totalItems) that.data.totalItems = response.data.response.total_posts;
             retriveImages(response.data.response.posts);
             that.data.postData = response.data.response.posts;
-            console.log(that.data.postData);
         });
     };
     var getPostData = function(){
