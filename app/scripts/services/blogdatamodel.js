@@ -16,8 +16,7 @@ angular.module('tumblrcrawlerApp')
     var retriveImages = function(data){
         if (data){
           for (var i=0; i<data.length; i++){
-            console.log(data[i]);
-            data[i].timestamp = new Date(data[i].date).valueOf();
+            data[i].date = new Date(data[i].date);
             data[i].imgs=new Array();
             if (data[i].type === 'photo'){
               for (var k=0;k<data[i].photos.length;k++){
