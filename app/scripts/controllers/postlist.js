@@ -3,13 +3,15 @@
 angular.module('tumblrcrawlerApp')
   .controller('PostList', ['$scope', 'blogData', function ($scope, blogData) {
 
-    $scope.postList = blogData.data;
+    $scope.postList = [];
     $scope.editPost = blogData.editEntry;
 
     $scope.$watch(function(){
-      return blogData.data;
+      return blogData.getPostData();
     }, function(newVal){
-      console.log(newVal);
+      if (newVal != undefined)
+        console.log(newVal);
+        $scope.postList = newVal;
     });
 
   }]);

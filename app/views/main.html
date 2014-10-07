@@ -1,7 +1,13 @@
 <div class="row">
-  <ul class="list">
-    <li data-ng-repeat="post in postList">
-      <h3>hahah</h3>
-    </li>
-  </ul>
+  <div data-ng-repeat="post in postList">
+    <div class="title {{post.title}}">
+      {{post.title}}
+    </div>
+    <div class="date">
+      {{post.date | date}}
+    </div>
+    <div class="body">
+      {{post.body }}
+    </div>
+  </div>
 </div>
