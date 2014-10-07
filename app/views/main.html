@@ -6,8 +6,7 @@
             <edit-in-place type="date" value="post.timestamp"></edit-in-place>
           </div>
         <div class="col-sm-6">
-          <span class="edittitle" data-ng-hide="editingtitle" ng-click="editingtitle=true" ng-bind="post.title"></span>
-          <input data-ng-show="editingtitle"  class="form-control" type="text" data-ng-model="post.title" value="post.title" data-ng-blur="editingtitle=false">
+          <edit-in-place type="date" value="post.title"></edit-in-place>
         </div>
       </div>
       <div class="row padding-row">

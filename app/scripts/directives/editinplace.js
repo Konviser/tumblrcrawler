@@ -3,8 +3,10 @@
 angular.module('tumblrcrawlerApp')
   .directive('editInPlace', function($compile){
 
-    var dateTemplate = '<span class="edit" data-ng-hide="editing" data-ng-click="edit()" ng-bind="value | date:\'medium\'"></span>'+
-                       '<input data-ng-show="editing" class="form-control" type="text" data-ng-model="value" value="value">';
+    var dateTemplate = '<span data-ng-click="edit()" ng-bind="value | date:\'medium\'"></span>'+
+                       '<input class="form-control" type="text" data-ng-model="value" value="value"></input>';
+    var titleTemplate = '<span data-ng-click="edit()" ng-bind="value"></span>'+
+                       '<input class="form-control" type="text" data-ng-model="value" value="value"></input>';
 
     var getTemplate = function(type){
       var template = '';
@@ -24,14 +26,18 @@ angular.module('tumblrcrawlerApp')
       $compile(element.contents())(scope);
 
       var inputElement = angular.element(element.children()[1]);
+      element.addClass('edit-in-place');
+      scope.editing = false;
 
       scope.edit = function(){
         scope.editing = true;
+        element.addClass('active');
         inputElement[0].focus();
       }
 
-      inputElement.prop('onblur', function () {
+      inputElement.on('blur', function () {
         scope.editing = false;
+        element.removeClass('active')
       });
 
     };

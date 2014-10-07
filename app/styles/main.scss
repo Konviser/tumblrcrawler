@@ -42,6 +42,19 @@ body {
   }
 }
 
+.edit-in-place span {
+    cursor: pointer;
+}
+.edit-in-place input {
+    display: none;
+}
+.edit-in-place.active span {
+    display: none;
+}
+.edit-in-place.active input {
+    display: inline-block;
+}
+
 .post {
     background-color: #eef0f2;
     border: 1px solid #eef0f2;
