@@ -1,14 +1,20 @@
 <div class="row">
   <div data-ng-repeat="post in postList.postData">
-    <div class="title {{post.title}}">
-      {{post.title}}
-    </div>
-    <div class="date">
-      {{post.date | date}}
-    </div>
-    <div class="body">
-      {{post.body}}
-    </div>
+    <div class="row post">
+        <div class="row">
+          <div class="col-sm-6">
+          {{post.date | date}}
+        </div>
+        <div class="col-sm-6">
+          {{post.title}}
+        </div>
+      </div>
+      <div class="row padding-row">
+        <div class="col-sm-6" data-ng-repeat="img in post.imgs">
+          <div class="imgpreview"><img data-ng-src="{{img}}" width="300"></div>
+        </div>
+      </div>
   </div>
-  <pagination total-items="postList.totalItems" ng-model="postList.currentPage" max-size="5" class="pagination-sm" boundary-links="true" rotate="false" ng-change="blogData.get(postList.currentPage)"></pagination>
+</div>
+  <pagination total-items="postList.totalItems" ng-model="postList.currentPage" max-size="5" class="pagination-sm" boundary-links="true" rotate="false" ng-change="blogData.get()"></pagination>
 </div>

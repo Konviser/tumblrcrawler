@@ -55,6 +55,7 @@ angular.module('tumblrcrawlerApp')
             if(!that.data.totalItems) that.data.totalItems = response.data.response.total_posts;
             retriveImages(response.data.response.posts);
             that.data.postData = response.data.response.posts;
+            console.log(that.data.postData);
         });
     };
     var getPostData = function(){
@@ -69,7 +70,7 @@ angular.module('tumblrcrawlerApp')
       this.data.postData =[];
       this.data.totalItems = 0;
       this.data.blogName = null;
-      this.data.currentPage = null;
+      this.data.currentPage = 0;
     }
 
     return {

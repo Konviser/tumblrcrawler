@@ -5,12 +5,4 @@ angular.module('tumblrcrawlerApp')
 
     $scope.blogData = blogData;
     $scope.postList = blogData.data;
-    $scope.currentPage = $rootScope.currentPage;
-
-    $scope.pageChanged = function(page){
-
-      console.log($rootScope.blogURL);
-    };
-
-
   }]);
