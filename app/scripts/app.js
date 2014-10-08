@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 angular
-  .module('tumblrcrawlerApp',['filters', 'infomsg'])
+  .module('tumblrcrawlerApp',['main','filters', 'infomsg'])
   .config(['$httpProvider', function($httpProvider){
     $httpProvider.interceptors.push('httpResponseInterceptor');
   }]);

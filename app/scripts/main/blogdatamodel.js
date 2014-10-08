@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('tumblrcrawlerApp')
+angular.module('main')
   .factory('blogData', ['$http', 'apiKey', function($http,apiKey){
 
     var data = {
@@ -86,7 +86,7 @@ angular.module('tumblrcrawlerApp')
             that.data.errorFetching = true;
         });
     };
-    
+
     var resetData = function(){
       this.data.postData =[];
       this.data.totalItems = 0;

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('tumblrcrawlerApp')
+angular.module('main')
   .factory('httpResponseInterceptor', ['$q', function($q){
 
   //This is going to be used as a response

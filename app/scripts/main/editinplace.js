@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('tumblrcrawlerApp')
+angular.module('main')
   .directive('editInPlace', function($compile,$filter,blogData){
 
     var dateTemplate = '<label>Date:</label><span data-ng-click="edit()" data-ng-bind="value.date | date "medium"></span>'+

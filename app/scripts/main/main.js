@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('tumblrcrawlerApp')
+angular.module('main')
   .controller('MainCtrl', ['$scope', 'blogData', function ($scope, blogData) {
 
     $scope.blogData = blogData;
