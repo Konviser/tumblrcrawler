@@ -3,8 +3,8 @@
 angular.module('main')
   .directive('editInPlace', function($compile,$filter,blogData){
 
-    var dateTemplate = '<label>Date:</label><span data-ng-click="edit()" data-ng-bind="value.date | date "medium"></span>'+
-                       '<input class="form-control" type="date" data-ng-model="value.date" ></input>'+
+    var dateTemplate = '<label>Date:</label><span data-ng-click="edit()" data-ng-bind="value.date | date: \'medium\'"></span>'+
+                       '<input class="form-control" type="datetime-local" data-ng-model="value.date" ></input>'+
                        '<span class="help-block">click on the date to edit</span>';
     var titleTemplate ='<label>Title:</label><span data-ng-click="edit()" data-ng-bind="(value.title | nulltitle)"></span>'+
                        '<input class="form-control" type="text" data-ng-model="value.title" value="value.title"></input>'+
@@ -64,7 +64,7 @@ angular.module('main')
         element.removeClass('active');
       });
 
-      scope.value.date = $filter("date")(scope.value.date, 'yyyy-MM-dd');
+      scope.value.date = $filter("date")(scope.value.date, 'yyyy-MM-ddTHH:mm:ss');
 
 
     };
