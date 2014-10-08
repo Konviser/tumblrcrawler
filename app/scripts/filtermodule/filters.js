@@ -14,7 +14,6 @@ angular.module('filters',[])
   .filter('filterposts', ['$filter', function($filter){
     return function (posts,title) {
       if (posts.length) {
-
         var filteredposts = [];
         var titleMatch = new RegExp(title, 'i');
 

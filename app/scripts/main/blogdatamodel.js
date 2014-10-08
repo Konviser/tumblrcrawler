@@ -72,15 +72,12 @@ angular.module('main')
       offset = this.data.currentPage*limit;
       var apiUrl = 'http://api.tumblr.com/v2/blog/'+this.data.blogName+'/posts?api_key='+apiKey+'&offset='+offset+'&limit='+limit+'&callback=JSON_CALLBACK';
       var that = this;
-
       $http.jsonp(apiUrl)
         .then(function (response) {
-
             if(!that.data.totalItems)
               that.data.totalItems = response.data.response.total_posts;
             retriveImages(response.data.response.posts);
             that.data.postData = that.data.postData.concat(response.data.response.posts);
-
         }, function(error){
             console.log('Error has occured while fetching the data');
             that.data.errorFetching = true;
