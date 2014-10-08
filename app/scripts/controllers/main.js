@@ -6,6 +6,7 @@ angular.module('tumblrcrawlerApp')
     $scope.blogData = blogData;
 
     $scope.getData = function(){
+
       blogData.resetData();
       blogData.data.blogName = $scope.blogURL;
       blogData.get();

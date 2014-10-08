@@ -10,3 +10,6 @@
  */
 angular
   .module('tumblrcrawlerApp', ['ui.bootstrap'])
+  .config(['$httpProvider', function($httpProvider){
+    $httpProvider.interceptors.push('httpResponseInterceptor');
+  }]);

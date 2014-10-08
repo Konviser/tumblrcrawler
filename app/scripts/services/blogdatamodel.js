@@ -6,8 +6,9 @@ angular.module('tumblrcrawlerApp')
     var data = {
       postData:[],
       totalItems:0,
-      blogName:null,
-      currentPage:0
+      blogName:'',
+      currentPage:0,
+      errorFetching:false
     };
 
     var limit = 5;
@@ -52,7 +53,22 @@ angular.module('tumblrcrawlerApp')
         }
     };
 
+    var findPost = function(postId) {
+      for (var i=0; i<data.postData.length;i++){
+        if (data.postData[i].id === postId){
+          return i;
+        }
+      }
+    };
+
+    var resetError = function(){
+      data.errorFetching = false;
+    };
+
     var get = function(){
+
+      resetError();
+
       offset = this.data.currentPage*limit;
       var apiUrl = 'http://api.tumblr.com/v2/blog/'+this.data.blogName+'/posts?api_key='+apiKey+'&offset='+offset+'&limit='+limit+'&callback=JSON_CALLBACK';
       var that = this;
@@ -61,29 +77,17 @@ angular.module('tumblrcrawlerApp')
             if(!that.data.totalItems) that.data.totalItems = response.data.response.total_posts;
             retriveImages(response.data.response.posts);
             that.data.postData = response.data.response.posts;
+        }, function(error){
+          console.log('Error has occured while fetching the data');
+          that.data.errorFetching = true;
         });
-    };
-    var getPostData = function(){
-      return data;
-    };
-
-    var getTotalItems = function(){
-      return totalItems;
     };
 
     var resetData = function(){
       this.data.postData =[];
       this.data.totalItems = 0;
-      this.data.blogName = null;
+      this.data.blogName = '';
       this.data.currentPage = 0;
-    };
-
-    var findPost = function(postId) {
-      for (var i=0; i<data.postData.length;i++){
-        if (data.postData[i].id === postId){
-          return i;
-        }
-      }
     };
 
     var deleteImage = function(index,postId){

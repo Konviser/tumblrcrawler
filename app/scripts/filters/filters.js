@@ -4,12 +4,13 @@ angular.module('tumblrcrawlerApp')
   .filter('nulltitle', ['$filter', function($filter){
 
       return function(title){
-        if(typeof(title)==='undefined') {return  'no title';}
+        if(!title)
+          return  'no title';
         else return title;
       }
 
   }])
-  
+
   .filter('filterposts', ['$filter', function($filter){
     return function (posts,title) {
       if (posts.length) {
