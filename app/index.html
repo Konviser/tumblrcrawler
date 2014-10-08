@@ -24,10 +24,10 @@
     <div class="container">
       <div data-ng-controller="MainCtrl">
         <div class="row padding-row">
-          <div class="col-sm-2">
+          <div class="col-sm-2 col-xs-3">
             <button type="button" class="btn btn-primary" data-ng-click="getData()" data-ng-disabled="!blogURL">Search</button>
           </div>
-          <div class="col-sm-10">
+          <div class="col-sm-10 col-xs-9">
             <input class="form-control" type="text" data-ng-model="blogURL" placeholder="Enter the name of the tumblr blog and click Search">
           </div>
         </div>
@@ -41,9 +41,6 @@
             <div ng-include="'views/main.html'" data-ng-controller="PostList"></div>
           </div>
         </div>
-      </div>
-      <div class="footer">
-        <p>Tumblr crawler</p>
       </div>
     </div>
 
@@ -93,7 +90,8 @@
         <script src="scripts/services/httpinterceptor.js"></script>
         <script src="scripts/controllers/postlist.js"></script>
         <script src="scripts/directives/editinplace.js"></script>
-        <script src="scripts/filters/filters.js"></script>
+        <script src="scripts/filtermodule/filters.js"></script>
+        <script src="scripts/infomessage/infomessage.js"></script>
         <!-- endbuild -->
 
 </body>

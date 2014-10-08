@@ -2,6 +2,9 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
+@import "editinplace";
+@import "infomsgstyle";
+
 
 .browsehappy {
   margin: 0.2em 0;
@@ -10,15 +13,11 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
   padding: 0.2em 0;
 }
 
-/* Space out content a bit */
 body {
   padding-top: 20px;
   padding-bottom: 20px;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
 .footer {
   padding-left: 15px;
   padding-right: 15px;
@@ -29,32 +28,7 @@ body {
   margin-bottom: 10px
 }
 
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
-
-  /* Make the masthead heading the same height as the navigation */
-  h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 40px;
-    padding-bottom: 19px;
-  }
-}
-
-.edit-in-place span {
-    cursor: pointer;
-}
-.edit-in-place input {
-    display: none;
-}
-.edit-in-place.active span {
-    display: none;
-}
-.edit-in-place.active input {
-    display: inline-block;
-}
-
+/*Style for anchor that delets images*/
 .closelink {
     display: block;
     position: relative;
@@ -64,9 +38,9 @@ body {
 a {
     cursor: pointer;
 }
+
 .post {
-    background-color: #eef0f2;
-    border: 1px solid #eef0f2;
+    border: 2px solid #eef0f2;
     padding: 10px;
     margin-bottom: 5px;
     -webkit-box-sizing: border-box;
@@ -79,6 +53,27 @@ a {
     .imgpreview {
       padding: 10px 10px;
     }
+
+    .help-block {
+      font-style: italic;
+      font-size: .8em;
+      font-weight: bold;
+      margin-top: 0px;
+      color: #737373;
+    }
+
+    label {
+      display: inline-block;
+      font-weight: bold;
+      padding-right: 5px;
+    }
+
+    .add-image {
+      font-weight: bold;
+      color: #54a5a0;
+      display: inline-block;
+      margin-top: 20px;
+    }
 }
 
 
@@ -87,26 +82,9 @@ a {
   padding-top: 19px;
   color: #777;
   border-top: 1px solid #e5e5e5;
+  margin-top: 10px;
 }
 
-.container-narrow > hr {
-  margin: 30px 0;
-}
-
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-}
-
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-
-  p + h4 {
-    margin-top: 28px;
-  }
-}
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
@@ -114,19 +92,4 @@ a {
     max-width: 730px;
   }
 
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
-  }
 }

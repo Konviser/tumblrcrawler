@@ -3,12 +3,14 @@
 angular.module('tumblrcrawlerApp')
   .directive('editInPlace', function($compile,$filter,blogData){
 
-    var dateTemplate = '<p>Date (click to edit)</p><span data-ng-click="edit()" data-ng-bind="value.date | date "medium"></span>'+
-                       '<input class="form-control" type="date" data-ng-model="value.date"></input>';
-    var titleTemplate = '<p>Title (click to edit)</p><span data-ng-click="edit()" data-ng-bind="(value.title | nulltitle)"></span>'+
-                       '<input class="form-control" type="text" data-ng-model="value.title" value="value.title"></input>';
+    var dateTemplate = '<label>Date:</label><span data-ng-click="edit()" data-ng-bind="value.date | date "medium"></span>'+
+                       '<input class="form-control" type="date" data-ng-model="value.date" ></input>'+
+                       '<span class="help-block">click on the date to edit</span>';
+    var titleTemplate ='<label>Title:</label><span data-ng-click="edit()" data-ng-bind="(value.title | nulltitle)"></span>'+
+                       '<input class="form-control" type="text" data-ng-model="value.title" value="value.title"></input>'+
+                       '<span class="help-block">click on the title to edit</span>';
 
-    var imageTemplate = '<span data-ng-click="edit()">Add Images</span>'+
+    var imageTemplate = '<span class="add-image" data-ng-click="edit()"><i class="fa fa-plus-circle"></i>Add Image</span>'+
                         '<input class="form-control" type="url" data-ng-keydown="addImages($event)" data-ng-model="image" type="text" placeholder="type image URL and press Enter"></input>';
 
 
@@ -69,6 +71,7 @@ angular.module('tumblrcrawlerApp')
 
     return {
       restrict: 'E',
+      replace: true,
       scope: {
           value: '='
       },

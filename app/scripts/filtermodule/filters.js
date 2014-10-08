@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('tumblrcrawlerApp')
+angular.module('filters',[])
   .filter('nulltitle', ['$filter', function($filter){
 
       return function(title){
