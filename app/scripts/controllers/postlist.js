@@ -5,5 +5,5 @@ angular.module('tumblrcrawlerApp')
 
     $scope.blogData = blogData;
     $scope.postList = blogData.data;
-    
+
   }]);

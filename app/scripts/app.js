@@ -10,7 +10,3 @@
  */
 angular
   .module('tumblrcrawlerApp', ['ui.bootstrap'])
-  .run(['$rootScope', function($rootScope){
-    $rootScope.currentPage = 0;
-
-  }]);

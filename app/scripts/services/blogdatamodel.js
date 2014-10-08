@@ -9,8 +9,8 @@ angular.module('tumblrcrawlerApp')
       blogName:null,
       currentPage:0
     };
+
     var limit = 5;
-    var totalItems = 0;
     var offset = 0;
 
     var retriveImages = function(data){

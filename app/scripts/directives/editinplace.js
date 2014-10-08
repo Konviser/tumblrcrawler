@@ -5,7 +5,7 @@ angular.module('tumblrcrawlerApp')
 
     var dateTemplate = '<p>Date (click to edit)</p><span data-ng-click="edit()" data-ng-bind="value.date | date "medium"></span>'+
                        '<input class="form-control" type="date" data-ng-model="value.date"></input>';
-    var titleTemplate = '<p>Title (click to edit)</p><span data-ng-click="edit()" ng-bind="value.title"></span>'+
+    var titleTemplate = '<p>Title (click to edit)</p><span data-ng-click="edit()" data-ng-bind="(value.title | uppercase)"></span>'+
                        '<input class="form-control" type="text" data-ng-model="value.title" value="value.title"></input>';
 
     var imageTemplate = '<span data-ng-click="edit()">Add Images</span>'+
@@ -29,6 +29,7 @@ angular.module('tumblrcrawlerApp')
     };
 
     var link = function(scope,element, attrs){
+
       element.html(getTemplate(attrs.type)).show();
       $compile(element.contents())(scope);
 
