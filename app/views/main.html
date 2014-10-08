@@ -25,6 +25,7 @@
     </div>
 </div>
 <div class="row padding row text-center">
-  <pagination data-ng-hide="!postList.postData.length" total-items="postList.totalItems" data-ng-model="postList.currentPage" max-size="5" class="pagination-sm" boundary-links="true" rotate="false" data-ng-change="blogData.get(blogURL)"></pagination>
+  <button class="btn btn-info"  data-ng-hide="noMore()" data-ng-click="showMore()">
+    <i class="fa fa-plus"></i>More</button>
 </div>
 </div>

@@ -6,4 +6,13 @@ angular.module('tumblrcrawlerApp')
     $scope.blogData = blogData;
     $scope.postList = blogData.data;
 
-  }]);
+    $scope.showMore = function(){
+      blogData.data.currentPage++;
+      blogData.get();
+    };
+
+    $scope.noMore = function(){
+      return blogData.data.totalItems === blogData.data.postData.length;
+    };
+
+}]);
