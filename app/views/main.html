@@ -17,8 +17,8 @@
       <div class="row padding-row">
         <div class="col-sm-6" data-ng-repeat="img in post.imgs">
           <div class="imgpreview">
-            <a class="closelink" data-ng-click="blogData.deleteImage($index,$parent.$index)"><i class="fa fa-times"></i></a>
-            <img data-ng-src="{{img}}" width="300">
+            <a class="closelink" data-ng-click="blogData.deleteImage($index,post.id)"><i class="fa fa-times"></i></a>
+            <img data-ng-src="{{img.src}}" width="300">
           </div>
         </div>
       </div>

@@ -20,7 +20,10 @@ angular.module('tumblrcrawlerApp')
             data[i].imgs=new Array();
             if (data[i].type === 'photo'){
               for (var k=0;k<data[i].photos.length;k++){
-                data[i].imgs.push(data[i].photos[k].original_size.url);
+                data[i].imgs.push({
+                  id: i,
+                  src: data[i].photos[k].original_size.url
+                });
               }
             } else {
               var div = document.createElement('div');
@@ -38,10 +41,12 @@ angular.module('tumblrcrawlerApp')
               var images = div.getElementsByTagName('img');
               if (images.length){
                 for (var m=0; m<images.length;m++){
-                  data[i].imgs.push(images[m].src);
+                  data[i].imgs.push({
+                    id: m,
+                    src: images[m].src
+                  });
                 }
               }
-
             }
           }
         }
@@ -73,14 +78,34 @@ angular.module('tumblrcrawlerApp')
       this.data.currentPage = 0;
     };
 
-    var deleteImage = function(index,postindex){
-      this.data.postData[postindex].imgs.splice(index, 1);
+    var findPost = function(postId) {
+      for (var i=0; i<data.postData.length;i++){
+        if (data.postData[i].id === postId){
+          return i;
+        }
+      }
     };
+
+    var deleteImage = function(index,postId){
+      var postIndex = findPost(postId);
+      this.data.postData[postIndex].imgs.splice(index,1);
+    };
+
+    var addImage = function(imgUrl,postId){
+      var postIndex = findPost(postId);
+      var newImageIndex = this.data.postData[postIndex].imgs.length;
+      this.data.postData[postIndex].imgs.push({
+        id:newImageIndex,
+        src:imgUrl
+      });
+    };
+
 
     return {
       data:data,
       get:get,
       resetData:resetData,
-      deleteImage:deleteImage
+      deleteImage:deleteImage,
+      addImage:addImage
     }
 }]);

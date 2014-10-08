@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('tumblrcrawlerApp')
-  .directive('editInPlace', function($compile,$filter){
+  .directive('editInPlace', function($compile,$filter,blogData){
 
     var dateTemplate = '<p>Date (click to edit)</p><span data-ng-click="edit()" data-ng-bind="value.date | date "medium"></span>'+
                        '<input class="form-control" type="date" data-ng-model="value.date"></input>';
@@ -50,7 +50,8 @@ angular.module('tumblrcrawlerApp')
 
       scope.addImages = function($event){
         if ($event.keyCode === 13 && scope.image) {
-          scope.value.imgs.push(scope.image);
+          //scope.value.imgs.push(scope.image);
+          blogData.addImage(scope.image,scope.value.id);
           scope.editing = false;
           element.removeClass('active');
         }
