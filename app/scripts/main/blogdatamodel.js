@@ -53,14 +53,6 @@ angular.module('main')
         }
     };
 
-    var findPost = function(postId) {
-      for (var i=0; i<data.postData.length;i++){
-        if (data.postData[i].id === postId){
-          return i;
-        }
-      }
-    };
-
     var resetError = function(){
       data.errorFetching = false;
     };
@@ -91,8 +83,8 @@ angular.module('main')
       this.data.currentPage = 0;
     };
 
-    var deleteImage = function(index,postId){
-      var postIndex = findPost(postId);
+    var deleteImage = function(index,post){
+      var postIndex = this.data.postData.indexOf(post);
       this.data.postData[postIndex].imgs.splice(index,1);
     };
 
